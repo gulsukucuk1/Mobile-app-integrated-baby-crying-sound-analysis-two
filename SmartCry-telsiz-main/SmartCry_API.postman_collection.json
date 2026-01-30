@@ -1,0 +1,114 @@
+{
+  "info": {
+    "name": "SmartCry API",
+    "description": "SmartCry Backend API Test Koleksiyonu",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "health"]
+        }
+      }
+    },
+    {
+      "name": "Get Categories",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/categories",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "categories"]
+        }
+      }
+    },
+    {
+      "name": "Get API Info",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/info",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "info"]
+        }
+      }
+    },
+    {
+      "name": "Analyze Mel Spectrogram",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "audio",
+              "type": "file",
+              "src": "/path/to/audio.wav"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/analyze/mel",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "analyze", "mel"]
+        }
+      }
+    },
+    {
+      "name": "Analyze MFCC",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "audio",
+              "type": "file",
+              "src": "/path/to/audio.wav"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/analyze/mfcc",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "analyze", "mfcc"]
+        }
+      }
+    }
+  ]
+}

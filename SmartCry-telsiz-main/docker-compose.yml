@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  smartcry-backend:
+    build: .
+    container_name: smartcry-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=app.py
+    volumes:
+      - ./uploads:/app/uploads
+      - ./AI:/app/AI
+    networks:
+      - smartcry-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Gelecek: Veritabanı hizmeti
+  # smartcry-db:
+  #   image: postgres:15
+  #   container_name: smartcry-db
+  #   environment:
+  #     - POSTGRES_DB=smartcry
+  #     - POSTGRES_USER=admin
+  #     - POSTGRES_PASSWORD=password
+  #   volumes:
+  #     - smartcry-db-data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+  #   networks:
+  #     - smartcry-network
+
+networks:
+  smartcry-network:
+    driver: bridge
+
+# volumes:
+#   smartcry-db-data:
